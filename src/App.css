@@ -1,38 +1,177 @@
+/* src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/imgs/background.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   text-align: center;
+  width: 100%;
+  max-width: 480px;
+  background-color: rgba(255, 255, 255, 0.9);
+  /* 半透明背景 */
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  /* 模糊背景 */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title-h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #ff6ec7, #ff9a8b);
+  /* 渐变色背景 */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* 让背景色只应用到文本 */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 0, 0, 0.5), 0 0 5px rgba(255, 0, 0, 0.3);
+  /* 字体阴影 */
+  margin-bottom: 30px;
+  animation: glow 1.5s ease-in-out infinite;
+  /* 发光效果 */
+  user-select: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* 发光效果动画 */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #ff9a8b, 0 0 10px #ff6ec7, 0 0 20px #ff6ec7;
+  }
+
+  50% {
+    text-shadow: 0 0 15px #ff9a8b, 0 0 30px #ff6ec7, 0 0 45px #ff6ec7;
+  }
+
+  100% {
+    text-shadow: 0 0 5px #ff9a8b, 0 0 10px #ff6ec7, 0 0 20px #ff6ec7;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.password-generator {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.controls {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.controls label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.controls input[type="text"],
+.controls input[type="number"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.controls input[type="text"]:focus,
+.controls input[type="number"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  padding: 14px 28px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  background-color: #003f7f;
+  transform: scale(0.98);
+}
+
+.error {
+  color: #e74c3c;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.password-display {
+  margin-top: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.password-display input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  color: #333;
+  background-color: #f7f7f7;
+  cursor: not-allowed;
+  text-align: center;
+}
+
+.password-display input:focus {
+  border-color: #007bff;
+}
+
+.text-generator-title{
+  text-align: center;
+  margin-bottom:6px;
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 20px 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 24px;
+  }
+
+  button {
+    font-size: 14px;
   }
 }
